@@ -1,0 +1,86 @@
+{
+  "target_table": {
+    "account": "ESHORE",
+    "table_name": "TB_RPT_ICT002_201602",
+    "table_fields": [
+      "SALES_CONTRACT_NBR",
+      "PROJECT_NAME",
+      "PURCHASE_CONTRACT_NBR",
+      "PURCHASE_CONTRACT_NAME",
+      "PURCHASE_NBR",
+      "PART_B",
+      "CREATE_DATE",
+      "END_DATE",
+      "FLOW_STATE",
+      "INCOME_CODE",
+      "PROJECT_TYPE",
+      "LZ_FEE",
+      "PURCHASE_CONTRACT_FEE"
+    ],
+    "primary_key": "",
+    "generate_frequency": "M"
+  },
+  "source_table": {
+    "tablename_fieldname": [
+      "TB_PRE_JYFX_XSHT|contract_nbr",
+      "TB_PRE_JYFX_XSHT|contract_name",
+      "TB_PRE_JYFX_OA|contract_nbr",
+      "TB_PRE_JYFX_OA|contract_name",
+      "TB_PRE_JYFX_OA|purchase_nbr",
+      "TB_PRE_JYFX_OA|party_b",
+      "TB_PRE_JYFX_OA|create_date",
+      "TB_PRE_JYFX_OA|end_date",
+      "TB_PRE_JYFX_OA|flow_state",
+      "TB_PRE_JYFX_WBFX|INCOME_CODE",
+      "TB_PRE_JYFX_WBFX|project_type",
+      "TB_PRE_JYFX_WBFX|lz_fee",
+      "TB_PRE_JYFX_OA|contract_fee"
+    ]
+  },
+  "master_table": {
+    "account": "ESHORE",
+    "table_name": "TB_PRE_JYFX_XSHT",
+    "where_condition": "department = \"ICT事业部\"",
+    "is_distinct": "no"
+  },
+  "slave_table": {
+    "account": "ESHORE",
+    "tables": [
+      {
+        "table_name": "TB_PRE_JYFX_OA",
+        "join_mode": "LEFT JOIN",
+        "join_condition": "",
+        "where_condition": "",
+        "join_fields": [
+          "contract_nbr|sales_contract_nbr"
+        ],
+        "is_distinct": "no"
+      },
+      {
+        "table_name": "TB_PRE_JYFX_WBFX",
+        "join_mode": "LEFT JOIN",
+        "join_condition": "",
+        "where_condition": "",
+        "join_fields": [
+          "contract_nbr|sales_contract_nbr"
+        ],
+        "is_distinct": "no"
+      }
+    ]
+  },
+  "slave_slave_table": {
+    "account": "ESHORE",
+    "tables": [
+      {
+        "table_name": "",
+        "join_mode": "",
+        "join_condition": "",
+        "where_condition": "",
+        "join_fields": [
+          ""
+        ],
+        "is_distinct": ""
+      }
+    ]
+  }
+}

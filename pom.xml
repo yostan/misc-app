@@ -67,6 +67,13 @@
           <version>${spark.version}</version>
       </dependency>
 
+      <!-- json -->
+      <dependency>
+        <groupId>org.json4s</groupId>
+        <artifactId>json4s-native_2.10</artifactId>
+        <version>3.3.0</version>
+      </dependency>
+
   </dependencies>
 
   <build>
